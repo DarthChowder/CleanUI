@@ -11,6 +11,9 @@ A lightweight, modern CSS library inspired by iOS and macOS aesthetics, now pack
 - Form validation, lazy loading, advanced tooltips, and toast variants
 - Easy customization with CSS variables
 
+## Live Demo
+Check out the [CleanUI Showcase](https://darthchowder.github.io/CleanUI/) for a live demo and documentation!
+
 ## Components
 
 ### Buttons
