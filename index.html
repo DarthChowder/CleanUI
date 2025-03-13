@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CleanUI: A lightweight, modern CSS library with advanced features and themes. Explore components, styles, and live demos!">
+  <meta name="keywords" content="CleanUI, CSS library, UI components, JavaScript, themes, animations">
   <title>CleanUI - Showcase & Documentation</title>
   <link rel="stylesheet" href="CleanUI.css">
   <style>
@@ -32,9 +34,40 @@
     .sidebar a:hover {
       color: var(--primary);
     }
+    .live-editor {
+      display: flex;
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .live-editor textarea {
+      width: 50%;
+      height: 200px;
+      padding: 10px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--card-bg);
+      color: var(--text);
+      resize: vertical;
+    }
+    .live-editor iframe {
+      width: 50%;
+      height: 200px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--background);
+    }
+    .download-links {
+      margin-top: 16px;
+    }
     @media (max-width: 768px) {
       .container {
         padding: 0 8px;
+      }
+      .live-editor {
+        flex-direction: column;
+      }
+      .live-editor textarea, .live-editor iframe {
+        width: 100%;
       }
     }
   </style>
@@ -48,6 +81,7 @@
     <a href="#components">Components</a>
     <a href="#themes">Themes</a>
     <a href="#animations">Animations</a>
+    <a href="#live-editor">Live Editor</a>
   </div>
   <nav class="navbar">
     <ul class="nav-list">
@@ -68,15 +102,13 @@
     <section id="installation" class="showcase-section">
       <h2 class="heading">Installation</h2>
       <p>Download the files and include them in your project:</p>
-      <pre class="code-block">
-&lt;link rel="stylesheet" href="CleanUI.css"&gt;
-&lt;script src="CleanUI.js"&gt;&lt;/script&gt;
-      </pre>
-      <p>Or use a CDN (if you host it):</p>
-      <pre class="code-block">
-&lt;link rel="stylesheet" href="https://yourcdn.com/CleanUI.css"&gt;
-&lt;script src="https://yourcdn.com/CleanUI.js"&gt;&lt;/script&gt;
-      </pre>
+      <pre class="code-block">&lt;link rel="stylesheet" href="CleanUI.css"&gt;
+&lt;script src="CleanUI.js"&gt;&lt;/script&gt;</pre>
+      <p>Or grab them directly from this repo:</p>
+      <div class="download-links flex" style="gap: 12px;">
+        <a href="https://raw.githubusercontent.com/yourusername/cleanui/main/CleanUI.css" class="btn" download>Download CSS</a>
+        <a href="https://raw.githubusercontent.com/yourusername/cleanui/main/CleanUI.js" class="btn" download>Download JS</a>
+      </div>
     </section>
 
     <section id="components" class="showcase-section">
@@ -87,22 +119,18 @@
         <button class="btn animate-pulse">Primary</button>
         <button class="btn btn-secondary">Secondary</button>
       </div>
-      <pre class="code-block">
-&lt;button class="btn animate-pulse"&gt;Primary&lt;/button&gt;
-&lt;button class="btn btn-secondary"&gt;Secondary&lt;/button&gt;
-      </pre>
+      <pre class="code-block">&lt;button class="btn animate-pulse"&gt;Primary&lt;/button&gt;
+&lt;button class="btn btn-secondary"&gt;Secondary&lt;/button&gt;</pre>
 
       <h3>Cards</h3>
       <div class="card animate-slide lazy-load">
         <h2 class="heading">Card Title</h2>
         <p>Content here.</p>
       </div>
-      <pre class="code-block">
-&lt;div class="card animate-slide lazy-load"&gt;
+      <pre class="code-block">&lt;div class="card animate-slide lazy-load"&gt;
   &lt;h2 class="heading"&gt;Card Title&lt;/h2&gt;
   &lt;p&gt;Content here.&lt;/p&gt;
-&lt;/div&gt;
-      </pre>
+&lt;/div&gt;</pre>
 
       <h3>Form Validation</h3>
       <form class="form-validate">
@@ -114,8 +142,7 @@
         </div>
         <button class="btn">Submit</button>
       </form>
-      <pre class="code-block">
-&lt;form class="form-validate"&gt;
+      <pre class="code-block">&lt;form class="form-validate"&gt;
   &lt;div class="form-group"&gt;
     &lt;label for="email"&gt;Email&lt;/label&gt;
     &lt;input type="email" id="email" class="input" data-validate="email" placeholder="Enter email"&gt;
@@ -123,8 +150,7 @@
     &lt;span class="form-success"&gt;Looks good!&lt;/span&gt;
   &lt;/div&gt;
   &lt;button class="btn"&gt;Submit&lt;/button&gt;
-&lt;/form&gt;
-      </pre>
+&lt;/form&gt;</pre>
 
       <h3>Tables (Sortable/Filterable)</h3>
       <div class="search-bar">
@@ -140,8 +166,7 @@
           <tr><td>Charlie</td><td>22</td></tr>
         </tbody>
       </table>
-      <pre class="code-block">
-&lt;div class="search-bar"&gt;
+      <pre class="code-block">&lt;div class="search-bar"&gt;
   &lt;input type="text" class="input table-filter" placeholder="Filter table..."&gt;
 &lt;/div&gt;
 &lt;table class="table table-striped table-hover"&gt;
@@ -152,8 +177,7 @@
     &lt;tr&gt;&lt;td&gt;Alice&lt;/td&gt;&lt;td&gt;25&lt;/td&gt;&lt;/tr&gt;
     &lt;tr&gt;&lt;td&gt;Bob&lt;/td&gt;&lt;td&gt;30&lt;/td&gt;&lt;/tr&gt;
   &lt;/tbody&gt;
-&lt;/table&gt;
-      </pre>
+&lt;/table&gt;</pre>
 
       <h3>Toasts (Variants/Stacking)</h3>
       <div class="flex" style="gap: 12px;">
@@ -161,11 +185,9 @@
         <button class="btn" data-toast="Error!" data-toast-type="error">Error</button>
         <button class="btn" data-toast="Info!" data-toast-type="info">Info</button>
       </div>
-      <pre class="code-block">
-&lt;button class="btn" data-toast="Success!" data-toast-type="success"&gt;Success&lt;/button&gt;
+      <pre class="code-block">&lt;button class="btn" data-toast="Success!" data-toast-type="success"&gt;Success&lt;/button&gt;
 &lt;button class="btn" data-toast="Error!" data-toast-type="error"&gt;Error&lt;/button&gt;
-&lt;button class="btn" data-toast="Info!" data-toast-type="info"&gt;Info&lt;/button&gt;
-      </pre>
+&lt;button class="btn" data-toast="Info!" data-toast-type="info"&gt;Info&lt;/button&gt;</pre>
 
       <h3>Modal</h3>
       <button class="btn" data-modal="modal-demo">Open Modal</button>
@@ -176,28 +198,24 @@
           <button class="btn">Close</button>
         </div>
       </div>
-      <pre class="code-block">
-&lt;button class="btn" data-modal="modal-demo"&gt;Open Modal&lt;/button&gt;
+      <pre class="code-block">&lt;button class="btn" data-modal="modal-demo"&gt;Open Modal&lt;/button&gt;
 &lt;div class="modal" id="modal-demo"&gt;
   &lt;div class="modal-content animate-fade"&gt;
     &lt;h2 class="heading"&gt;Modal Demo&lt;/h2&gt;
     &lt;p&gt;This is a modal!&lt;/p&gt;
     &lt;button class="btn"&gt;Close&lt;/button&gt;
   &lt;/div&gt;
-&lt;/div&gt;
-      </pre>
+&lt;/div&gt;</pre>
 
       <h3>Tooltips (Advanced)</h3>
       <div class="tooltip">
         <button class="btn">Hover Me</button>
         <span class="tooltip-text" data-position="right">Rich <em>content</em></span>
       </div>
-      <pre class="code-block">
-&lt;div class="tooltip"&gt;
+      <pre class="code-block">&lt;div class="tooltip"&gt;
   &lt;button class="btn"&gt;Hover Me&lt;/button&gt;
   &lt;span class="tooltip-text" data-position="right"&gt;Rich &lt;em&gt;content&lt;/em&gt;&lt;/span&gt;
-&lt;/div&gt;
-      </pre>
+&lt;/div&gt;</pre>
 
       <h3>Carousel</h3>
       <div class="carousel animate-slide lazy-load">
@@ -209,8 +227,7 @@
         <button class="carousel-btn prev">❮</button>
         <button class="carousel-btn next">❯</button>
       </div>
-      <pre class="code-block">
-&lt;div class="carousel animate-slide lazy-load"&gt;
+      <pre class="code-block">&lt;div class="carousel animate-slide lazy-load"&gt;
   &lt;div class="carousel-inner"&gt;
     &lt;div class="carousel-item"&gt;Slide 1&lt;/div&gt;
     &lt;div class="carousel-item"&gt;Slide 2&lt;/div&gt;
@@ -218,10 +235,83 @@
   &lt;/div&gt;
   &lt;button class="carousel-btn prev"&gt;❮&lt;/button&gt;
   &lt;button class="carousel-btn next"&gt;❯&lt;/button&gt;
-&lt;/div&gt;
-      </pre>
+&lt;/div&gt;</pre>
 
-      <!-- Add more components as needed -->
+      <h3>Datepicker</h3>
+      <div class="datepicker">
+        <input type="text" class="input" placeholder="Select date">
+        <div class="datepicker-calendar">
+          <div class="datepicker-header">
+            <button class="datepicker-btn prev">❮</button>
+            <span class="datepicker-month-year"></span>
+            <button class="datepicker-btn next">❯</button>
+          </div>
+          <div class="datepicker-days"></div>
+        </div>
+      </div>
+      <pre class="code-block">&lt;div class="datepicker"&gt;
+  &lt;input type="text" class="input" placeholder="Select date"&gt;
+  &lt;div class="datepicker-calendar"&gt;
+    &lt;div class="datepicker-header"&gt;
+      &lt;button class="datepicker-btn prev"&gt;❮&lt;/button&gt;
+      &lt;span class="datepicker-month-year"&gt;&lt;/span&gt;
+      &lt;button class="datepicker-btn next"&gt;❯&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class="datepicker-days"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+
+      <h3>Charts</h3>
+      <div class="chart">
+        <div class="chart-bar"></div>
+      </div>
+      <div class="chart">
+        <div class="chart-pie"></div>
+      </div>
+      <pre class="code-block">&lt;div class="chart"&gt;
+  &lt;div class="chart-bar"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="chart"&gt;
+  &lt;div class="chart-pie"&gt;&lt;/div&gt;
+&lt;/div&gt;</pre>
+
+      <h3>Image Gallery</h3>
+      <div class="image-gallery animate-fade lazy-load">
+        <div class="gallery-item">
+          <img src="https://via.placeholder.com/200" alt="Image" loading="lazy">
+          <div class="gallery-overlay"><span>View</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://via.placeholder.com/200" alt="Image" loading="lazy">
+          <div class="gallery-overlay"><span>View</span></div>
+        </div>
+      </div>
+      <pre class="code-block">&lt;div class="image-gallery animate-fade lazy-load"&gt;
+  &lt;div class="gallery-item"&gt;
+    &lt;img src="https://via.placeholder.com/200" alt="Image" loading="lazy"&gt;
+    &lt;div class="gallery-overlay"&gt;&lt;span&gt;View&lt;/span&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="gallery-item"&gt;
+    &lt;img src="https://via.placeholder.com/200" alt="Image" loading="lazy"&gt;
+    &lt;div class="gallery-overlay"&gt;&lt;span&gt;View&lt;/span&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+
+      <h3>Rating Stars</h3>
+      <div class="rating">
+        <span class="rating-star">★</span>
+        <span class="rating-star">★</span>
+        <span class="rating-star">★</span>
+        <span class="rating-star">★</span>
+        <span class="rating-star">★</span>
+      </div>
+      <pre class="code-block">&lt;div class="rating"&gt;
+  &lt;span class="rating-star"&gt;★&lt;/span&gt;
+  &lt;span class="rating-star"&gt;★&lt;/span&gt;
+  &lt;span class="rating-star"&gt;★&lt;/span&gt;
+  &lt;span class="rating-star"&gt;★&lt;/span&gt;
+  &lt;span class="rating-star"&gt;★&lt;/span&gt;
+&lt;/div&gt;</pre>
     </section>
 
     <section id="themes" class="showcase-section">
@@ -233,12 +323,10 @@
         <li><strong>High-Contrast:</strong> Accessibility-focused.</li>
       </ul>
       <p>Customize via CSS variables:</p>
-      <pre class="code-block">
-:root {
+      <pre class="code-block">:root {
   --primary: #ff9500;
   --background: #f0f0f0;
-}
-      </pre>
+}</pre>
     </section>
 
     <section id="animations" class="showcase-section">
@@ -249,12 +337,24 @@
         <div class="card animate-bounce">Bounce</div>
         <div class="card animate-pulse">Pulse</div>
       </div>
-      <pre class="code-block">
-&lt;div class="card animate-fade"&gt;Fade&lt;/div&gt;
+      <pre class="code-block">&lt;div class="card animate-fade"&gt;Fade&lt;/div&gt;
 &lt;div class="card animate-slide"&gt;Slide&lt;/div&gt;
 &lt;div class="card animate-bounce"&gt;Bounce&lt;/div&gt;
-&lt;div class="card animate-pulse"&gt;Pulse&lt;/div&gt;
-      </pre>
+&lt;div class="card animate-pulse"&gt;Pulse&lt;/div&gt;</pre>
+    </section>
+
+    <section id="live-editor" class="showcase-section">
+      <h2 class="heading">Live Editor</h2>
+      <p>Try CleanUI live! Edit the code below and see the result instantly.</p>
+      <div class="live-editor">
+        <textarea id="live-code" placeholder="Enter HTML with CleanUI classes...">
+&lt;button class="btn animate-pulse"&gt;Click Me&lt;/button&gt;
+&lt;div class="card"&gt;
+  &lt;h2 class="heading"&gt;Live Demo&lt;/h2&gt;
+  &lt;p&gt;This is a live preview!&lt;/p&gt;
+&lt;/div&gt;</textarea>
+        <iframe id="live-preview"></iframe>
+      </div>
     </section>
   </div>
 
@@ -266,6 +366,39 @@
     </div>
   </div>
 
+  <div class="modal" id="modal-demo">
+    <div class="modal-content animate-fade">
+      <h2 class="heading">Modal Demo</h2>
+      <p>This is a modal!</p>
+      <button class="btn">Close</button>
+    </div>
+  </div>
+
   <script src="CleanUI.js"></script>
+  <script>
+    // Live Editor Functionality
+    const liveCode = document.getElementById('live-code');
+    const livePreview = document.getElementById('live-preview');
+    
+    function updatePreview() {
+      const html = liveCode.value;
+      const doc = livePreview.contentDocument || livePreview.contentWindow.document;
+      doc.open();
+      doc.write(`
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <link rel="stylesheet" href="CleanUI.css">
+          <script src="CleanUI.js"></script>
+        </head>
+        <body style="padding: 10px;">${html}</body>
+        </html>
+      `);
+      doc.close();
+    }
+
+    liveCode.addEventListener('input', updatePreview);
+    updatePreview(); // Initial render
+  </script>
 </body>
 </html>
