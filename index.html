@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CleanUI - Showcase & Documentation</title>
+  <link rel="stylesheet" href="CleanUI.css">
+  <style>
+    /* Additional styles for showcase */
+    .showcase-section {
+      margin: 40px 0;
+    }
+    .showcase-section h2 {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 10px;
+    }
+    .code-block {
+      background: var(--secondary);
+      padding: 16px;
+      border-radius: 10px;
+      font-family: monospace;
+      font-size: 14px;
+      margin-top: 16px;
+      overflow-x: auto;
+    }
+    .sidebar a {
+      display: block;
+      padding: 8px 0;
+      text-decoration: none;
+      color: var(--text);
+    }
+    .sidebar a:hover {
+      color: var(--primary);
+    }
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <button class="sidebar-toggle animate-bounce">☰</button>
+  <div class="sidebar animate-slide">
+    <h2 class="heading">CleanUI</h2>
+    <a href="#introduction">Introduction</a>
+    <a href="#installation">Installation</a>
+    <a href="#components">Components</a>
+    <a href="#themes">Themes</a>
+    <a href="#animations">Animations</a>
+  </div>
+  <nav class="navbar">
+    <ul class="nav-list">
+      <li><a href="#introduction">Home</a></li>
+      <li><a href="https://github.com/yourusername/cleanui" target="_blank">GitHub</a></li>
+    </ul>
+  </nav>
+  <div class="container">
+    <section id="introduction" class="showcase-section">
+      <h1 class="heading animate-fade">Welcome to CleanUI</h1>
+      <p>A lightweight, modern CSS library inspired by iOS and macOS aesthetics. Packed with components, animations, and advanced features like form validation, sortable tables, and toast stacking.</p>
+      <div class="flex" style="gap: 12px; margin-top: 16px;">
+        <button class="btn animate-pulse" onclick="window.scrollTo({top: document.getElementById('components').offsetTop - 60, behavior: 'smooth'})">See Components</button>
+        <button class="btn btn-secondary" data-modal="modal-info">Learn More</button>
+      </div>
+    </section>
+
+    <section id="installation" class="showcase-section">
+      <h2 class="heading">Installation</h2>
+      <p>Download the files and include them in your project:</p>
+      <pre class="code-block">
+&lt;link rel="stylesheet" href="CleanUI.css"&gt;
+&lt;script src="CleanUI.js"&gt;&lt;/script&gt;
+      </pre>
+      <p>Or use a CDN (if you host it):</p>
+      <pre class="code-block">
+&lt;link rel="stylesheet" href="https://yourcdn.com/CleanUI.css"&gt;
+&lt;script src="https://yourcdn.com/CleanUI.js"&gt;&lt;/script&gt;
+      </pre>
+    </section>
+
+    <section id="components" class="showcase-section">
+      <h2 class="heading">Components</h2>
+
+      <h3>Buttons</h3>
+      <div class="flex" style="gap: 12px;">
+        <button class="btn animate-pulse">Primary</button>
+        <button class="btn btn-secondary">Secondary</button>
+      </div>
+      <pre class="code-block">
+&lt;button class="btn animate-pulse"&gt;Primary&lt;/button&gt;
+&lt;button class="btn btn-secondary"&gt;Secondary&lt;/button&gt;
+      </pre>
+
+      <h3>Cards</h3>
+      <div class="card animate-slide lazy-load">
+        <h2 class="heading">Card Title</h2>
+        <p>Content here.</p>
+      </div>
+      <pre class="code-block">
+&lt;div class="card animate-slide lazy-load"&gt;
+  &lt;h2 class="heading"&gt;Card Title&lt;/h2&gt;
+  &lt;p&gt;Content here.&lt;/p&gt;
+&lt;/div&gt;
+      </pre>
+
+      <h3>Form Validation</h3>
+      <form class="form-validate">
+        <div class="form-group">
+          <label for="email-demo">Email</label>
+          <input type="email" id="email-demo" class="input" data-validate="email" placeholder="Enter email">
+          <span class="form-error">Invalid email</span>
+          <span class="form-success">Looks good!</span>
+        </div>
+        <button class="btn">Submit</button>
+      </form>
+      <pre class="code-block">
+&lt;form class="form-validate"&gt;
+  &lt;div class="form-group"&gt;
+    &lt;label for="email"&gt;Email&lt;/label&gt;
+    &lt;input type="email" id="email" class="input" data-validate="email" placeholder="Enter email"&gt;
+    &lt;span class="form-error"&gt;Invalid email&lt;/span&gt;
+    &lt;span class="form-success"&gt;Looks good!&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;button class="btn"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
+      </pre>
+
+      <h3>Tables (Sortable/Filterable)</h3>
+      <div class="search-bar">
+        <input type="text" class="input table-filter" placeholder="Filter table...">
+      </div>
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr><th class="sortable">Name</th><th class="sortable">Age</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Alice</td><td>25</td></tr>
+          <tr><td>Bob</td><td>30</td></tr>
+          <tr><td>Charlie</td><td>22</td></tr>
+        </tbody>
+      </table>
+      <pre class="code-block">
+&lt;div class="search-bar"&gt;
+  &lt;input type="text" class="input table-filter" placeholder="Filter table..."&gt;
+&lt;/div&gt;
+&lt;table class="table table-striped table-hover"&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;&lt;th class="sortable"&gt;Name&lt;/th&gt;&lt;th class="sortable"&gt;Age&lt;/th&gt;&lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;&lt;td&gt;Alice&lt;/td&gt;&lt;td&gt;25&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;Bob&lt;/td&gt;&lt;td&gt;30&lt;/td&gt;&lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+      </pre>
+
+      <h3>Toasts (Variants/Stacking)</h3>
+      <div class="flex" style="gap: 12px;">
+        <button class="btn" data-toast="Success!" data-toast-type="success">Success</button>
+        <button class="btn" data-toast="Error!" data-toast-type="error">Error</button>
+        <button class="btn" data-toast="Info!" data-toast-type="info">Info</button>
+      </div>
+      <pre class="code-block">
+&lt;button class="btn" data-toast="Success!" data-toast-type="success"&gt;Success&lt;/button&gt;
+&lt;button class="btn" data-toast="Error!" data-toast-type="error"&gt;Error&lt;/button&gt;
+&lt;button class="btn" data-toast="Info!" data-toast-type="info"&gt;Info&lt;/button&gt;
+      </pre>
+
+      <h3>Modal</h3>
+      <button class="btn" data-modal="modal-demo">Open Modal</button>
+      <div class="modal" id="modal-demo">
+        <div class="modal-content animate-fade">
+          <h2 class="heading">Modal Demo</h2>
+          <p>This is a modal!</p>
+          <button class="btn">Close</button>
+        </div>
+      </div>
+      <pre class="code-block">
+&lt;button class="btn" data-modal="modal-demo"&gt;Open Modal&lt;/button&gt;
+&lt;div class="modal" id="modal-demo"&gt;
+  &lt;div class="modal-content animate-fade"&gt;
+    &lt;h2 class="heading"&gt;Modal Demo&lt;/h2&gt;
+    &lt;p&gt;This is a modal!&lt;/p&gt;
+    &lt;button class="btn"&gt;Close&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+      </pre>
+
+      <h3>Tooltips (Advanced)</h3>
+      <div class="tooltip">
+        <button class="btn">Hover Me</button>
+        <span class="tooltip-text" data-position="right">Rich <em>content</em></span>
+      </div>
+      <pre class="code-block">
+&lt;div class="tooltip"&gt;
+  &lt;button class="btn"&gt;Hover Me&lt;/button&gt;
+  &lt;span class="tooltip-text" data-position="right"&gt;Rich &lt;em&gt;content&lt;/em&gt;&lt;/span&gt;
+&lt;/div&gt;
+      </pre>
+
+      <h3>Carousel</h3>
+      <div class="carousel animate-slide lazy-load">
+        <div class="carousel-inner">
+          <div class="carousel-item">Slide 1</div>
+          <div class="carousel-item">Slide 2</div>
+          <div class="carousel-item">Slide 3</div>
+        </div>
+        <button class="carousel-btn prev">❮</button>
+        <button class="carousel-btn next">❯</button>
+      </div>
+      <pre class="code-block">
+&lt;div class="carousel animate-slide lazy-load"&gt;
+  &lt;div class="carousel-inner"&gt;
+    &lt;div class="carousel-item"&gt;Slide 1&lt;/div&gt;
+    &lt;div class="carousel-item"&gt;Slide 2&lt;/div&gt;
+    &lt;div class="carousel-item"&gt;Slide 3&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;button class="carousel-btn prev"&gt;❮&lt;/button&gt;
+  &lt;button class="carousel-btn next"&gt;❯&lt;/button&gt;
+&lt;/div&gt;
+      </pre>
+
+      <!-- Add more components as needed -->
+    </section>
+
+    <section id="themes" class="showcase-section">
+      <h2 class="heading">Themes</h2>
+      <p>Switch between themes using the dropdown in the top-right corner.</p>
+      <ul>
+        <li><strong>Light:</strong> Default clean look.</li>
+        <li><strong>Dark:</strong> Sleek dark mode.</li>
+        <li><strong>High-Contrast:</strong> Accessibility-focused.</li>
+      </ul>
+      <p>Customize via CSS variables:</p>
+      <pre class="code-block">
+:root {
+  --primary: #ff9500;
+  --background: #f0f0f0;
+}
+      </pre>
+    </section>
+
+    <section id="animations" class="showcase-section">
+      <h2 class="heading">Animations</h2>
+      <div class="flex" style="gap: 12px;">
+        <div class="card animate-fade">Fade</div>
+        <div class="card animate-slide">Slide</div>
+        <div class="card animate-bounce">Bounce</div>
+        <div class="card animate-pulse">Pulse</div>
+      </div>
+      <pre class="code-block">
+&lt;div class="card animate-fade"&gt;Fade&lt;/div&gt;
+&lt;div class="card animate-slide"&gt;Slide&lt;/div&gt;
+&lt;div class="card animate-bounce"&gt;Bounce&lt;/div&gt;
+&lt;div class="card animate-pulse"&gt;Pulse&lt;/div&gt;
+      </pre>
+    </section>
+  </div>
+
+  <div class="modal" id="modal-info">
+    <div class="modal-content animate-fade">
+      <h2 class="heading">About CleanUI</h2>
+      <p>CleanUI is built for developers who want a lightweight, feature-rich UI library without the bloat. MIT licensed and open-source!</p>
+      <button class="btn">Close</button>
+    </div>
+  </div>
+
+  <script src="CleanUI.js"></script>
+</body>
+</html>
